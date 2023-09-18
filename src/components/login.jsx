@@ -44,7 +44,7 @@ const Login = () => {
               variant="outlined"
               placeholder="password"
               id="password"
-              type="password"
+              type={show ? "password" : "text"}
               className="input"
               fullWidth
               sx={{
