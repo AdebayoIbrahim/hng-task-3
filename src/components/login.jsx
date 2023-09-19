@@ -16,6 +16,8 @@ const Login = () => {
   const [show, setShow] = useState(true);
   //handling submittion
   const [inpVal, setInpval] = useState({});
+  const [message, setMessage] = useState("");
+  const [bg, Setbg] = useState(false);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -36,13 +38,17 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, inpVal.username, inpVal.password);
       console.log("successfull");
+      setMessage("Login Successful");
+      Setbg(true);
     } catch (err) {
       console.log(err.message);
+      setMessage("Invalid Login Cridentials");
     }
   };
 
   return (
     <Stack
+      spacing={2}
       justifyContent="center"
       alignItems="center"
       sx={{ minHeight: "100vh" }}
@@ -120,6 +126,20 @@ const Login = () => {
           </Button>
         </Box>
       </Box>
+      {message !== "" && (
+        <Box
+          mt={2}
+          p={1}
+          sx={{
+            background: bg ? "#1d7d1d" : "#ab2222",
+            color: "white",
+            paddingInline: "2.5rem",
+            borderRadius: ".4em",
+          }}
+        >
+          {message}
+        </Box>
+      )}
     </Stack>
   );
 };
