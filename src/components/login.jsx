@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { auth, signInWithEmailAndPassword } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import GalleryContext from "../Context/galleryContext";
 const iconStyle = {
   position: "absolute",
   right: "15px",
@@ -12,25 +13,10 @@ const iconStyle = {
   cursor: "pointer",
   fontSize: "20px",
 };
+
 const Login = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-      const user = {
-        uid: userAuth.uid,
-        email: userAuth.email,
-      };
-      if (userAuth) {
-        console.log("userAuth", userAuth);
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-    return unsubscribe;
-  }, []);
-
+  const { setUser } = useContext(GalleryContext);
   const [show, setShow] = useState(true);
   //handling submittion
   const [inpVal, setInpval] = useState({});
@@ -62,10 +48,13 @@ const Login = () => {
       console.log("successfull");
       setMessage(`Login Successful `);
       Setbg(true);
+      setUser(true);
       navigate("/gallery");
     } catch (err) {
       console.log(err.message);
       setMessage("Invalid Login Cridentials");
+      setUser(false);
+      navigate("/");
     }
   };
 
