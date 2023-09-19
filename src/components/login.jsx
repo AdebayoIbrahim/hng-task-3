@@ -29,6 +29,10 @@ const Login = () => {
     }));
   };
 
+  message !== "" &&
+    setTimeout(() => {
+      setMessage("");
+    }, 3000);
   const handleSubmmit = async (e) => {
     e.preventDefault();
     if (!inpVal.username || !inpVal.password) {
@@ -38,7 +42,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, inpVal.username, inpVal.password);
       console.log("successfull");
-      setMessage("Login Successful");
+      setMessage(`Login Successful `);
       Setbg(true);
     } catch (err) {
       console.log(err.message);
@@ -137,7 +141,7 @@ const Login = () => {
             borderRadius: ".4em",
           }}
         >
-          {message}
+          {`${message} ${bg ? "✓" : "✖"}`}
         </Box>
       )}
     </Stack>
