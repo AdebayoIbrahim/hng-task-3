@@ -25,8 +25,18 @@ const Images = [
     tags: ["Anime", "landscape"],
   },
   {
-    id: 7,
+    id: 6,
     url: "https://source.unsplash.com/Mf23RF8xArY",
+    tags: ["nature", "landscape"],
+  },
+  {
+    id: 7,
+    url: "https://source.unsplash.com/VzJjPuk53sk",
+    tags: ["Tech", "Coding"],
+  },
+  {
+    id: 8,
+    url: "https://source.unsplash.com/a-snow-covered-mountain-under-a-night-sky-aUdoa_00dgY",
     tags: ["nature", "landscape"],
   },
 ];

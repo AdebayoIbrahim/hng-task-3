@@ -20,6 +20,7 @@ const Navbar = () => {
         zIndex: "99 !important",
         backgroundColor: "transparent",
         padding: ".2em 8%",
+        backdropFilter: "blur(6px)",
       }}
     >
       <StyledBar>

@@ -15,7 +15,9 @@ const GalleryList = ({ item }) => {
           }}
         />
         <Box>
-          <Typography>{item.tags.join(", ")}</Typography>
+          <Typography sx={{ textAlign: "left" }}>
+            {item.tags.join(", ")}
+          </Typography>
         </Box>
       </Box>
     </Grid>
