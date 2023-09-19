@@ -2,10 +2,44 @@ import React, { useState } from "react";
 import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { auth } from "../firebase";
+import { auth, signInWithEmailAndPassword } from "../firebase";
 
+const iconStyle = {
+  position: "absolute",
+  right: "15px",
+  top: "16px",
+  fill: "white",
+  cursor: "pointer",
+  fontSize: "20px",
+};
 const Login = () => {
   const [show, setShow] = useState(true);
+  //handling submittion
+  const [inpVal, setInpval] = useState({});
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const val = e.target.value;
+
+    setInpval((values) => ({
+      ...values,
+      [name]: val,
+    }));
+  };
+
+  const handleSubmmit = async (e) => {
+    e.preventDefault();
+    if (!inpVal.username || !inpVal.password) {
+      alert("please fill out the form");
+      return;
+    }
+    try {
+      await signInWithEmailAndPassword(auth, inpVal.username, inpVal.password);
+      console.log("successfull");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <Stack
@@ -14,11 +48,16 @@ const Login = () => {
       sx={{ minHeight: "100vh" }}
     >
       <Box
-        p={3}
+        pt={8}
+        pb={8}
+        pl={3}
+        pr={3}
         sx={{
           background: "transparent",
           textAlign: "center",
+          boxShadow: "0 0 1em #0c3035",
           width: "clamp(300px,350px, 450px)",
+          borderRadius: "10px",
         }}
         component="form"
       >
@@ -32,6 +71,9 @@ const Login = () => {
             placeholder="Username"
             id="input"
             className="input"
+            value={inpVal.username || ""}
+            onChange={handleChange}
+            name="username"
             InputProps={{}}
             sx={{
               background: `transparent`,
@@ -42,10 +84,13 @@ const Login = () => {
             <TextField
               mt={2}
               variant="outlined"
-              placeholder="password"
+              placeholder="Password"
+              name="password"
               id="password"
               type={show ? "password" : "text"}
               className="input"
+              value={inpVal.password || ""}
+              onChange={handleChange}
               fullWidth
               sx={{
                 background: `transparent`,
@@ -53,32 +98,16 @@ const Login = () => {
               }}
             />
             {show ? (
-              <Visibility
-                sx={{
-                  position: "absolute",
-                  right: "15px",
-                  top: "16px",
-                  fill: "white",
-                  cursor: "pointer",
-                }}
-                onClick={() => setShow(!show)}
-              />
+              <Visibility style={iconStyle} onClick={() => setShow(!show)} />
             ) : (
-              <VisibilityOff
-                sx={{
-                  position: "absolute",
-                  right: "15px",
-                  top: "16px",
-                  fill: "white",
-                  cursor: "pointer",
-                }}
-                onClick={() => setShow(!show)}
-              />
+              <VisibilityOff style={iconStyle} onClick={() => setShow(!show)} />
             )}
           </Box>
         </Stack>
         <Box pt={3}>
           <Button
+            type="submit"
+            onClick={handleSubmmit}
             variant="contained"
             sx={{
               width: "100%",
