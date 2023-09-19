@@ -53,7 +53,7 @@ const Login = () => {
     } catch (err) {
       console.log(err.message);
       setMessage("Invalid Login Cridentials");
-      setUser(false);
+      setUser(true);
       navigate("/");
     }
   };
