@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Stack, Typography, TextField, Button } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { auth, signInWithEmailAndPassword } from "../firebase";
-
+import { useNavigate } from "react-router-dom";
 const iconStyle = {
   position: "absolute",
   right: "15px",
@@ -13,6 +13,24 @@ const iconStyle = {
   fontSize: "20px",
 };
 const Login = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      const user = {
+        uid: userAuth.uid,
+        email: userAuth.email,
+      };
+      if (userAuth) {
+        console.log("userAuth", userAuth);
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return unsubscribe;
+  }, []);
+
   const [show, setShow] = useState(true);
   //handling submittion
   const [inpVal, setInpval] = useState({});
@@ -44,6 +62,7 @@ const Login = () => {
       console.log("successfull");
       setMessage(`Login Successful `);
       Setbg(true);
+      navigate("/gallery");
     } catch (err) {
       console.log(err.message);
       setMessage("Invalid Login Cridentials");
@@ -139,6 +158,7 @@ const Login = () => {
             color: "white",
             paddingInline: "2.5rem",
             borderRadius: ".4em",
+            boxShadow: "0 0 .5em rgb(0 0 0 /.4)",
           }}
         >
           {`${message} ${bg ? "✓" : "✖"}`}
