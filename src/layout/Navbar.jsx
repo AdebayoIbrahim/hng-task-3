@@ -23,7 +23,7 @@ const Navbar = () => {
       }}
     >
       <StyledBar>
-        <Stack direction="column" gap="2">
+        <Stack direction="row" alignItems="center" spacing={5}>
           <Typography
             variant="h1"
             component={Link}
@@ -35,7 +35,13 @@ const Navbar = () => {
             Gallery-Hub
           </Typography>
 
-          <Typography style={Href} component={Link} fontSize={18} to="/faqs">
+          <Typography
+            style={Href}
+            pl={5}
+            component={Link}
+            fontSize={16}
+            to="/faqs"
+          >
             How To Use
           </Typography>
         </Stack>
