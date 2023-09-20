@@ -5,6 +5,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { auth, signInWithEmailAndPassword } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import GalleryContext from "../Context/galleryContext";
+import BG from "../assets/b_g.jpg";
 const iconStyle = {
   position: "absolute",
   right: "15px",
@@ -68,7 +69,13 @@ const Login = () => {
       spacing={2}
       justifyContent="center"
       alignItems="center"
-      sx={{ minHeight: "100vh" }}
+      sx={{
+        minHeight: "100vh",
+        background: `url(${BG})`,
+        backgroundPosition: "50% 60%",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
     >
       <Box
         pt={8}
@@ -78,14 +85,15 @@ const Login = () => {
         sx={{
           background: "transparent",
           textAlign: "center",
-          boxShadow: "0 0 1em #0c3035",
-          width: "clamp(300px,350px, 450px)",
-          borderRadius: "10px",
+          boxShadow: "0 0 1.4em #075b67",
+          width: "clamp(200px,350px, 400px)",
+          borderRadius: "1rem",
+          // border: "6px solid #075b67",
         }}
         component="form"
       >
         <Typography color="white" variant="body1" fontSize={20}>
-          G-HUB
+          Gallery-Hub
         </Typography>
         <Stack spacing={3} pt={4} className="text">
           <TextField
