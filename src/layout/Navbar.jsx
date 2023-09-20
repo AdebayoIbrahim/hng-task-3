@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppBar, Toolbar, Typography, styled, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import GalleryContext from "../Context/galleryContext";
+import { Menu } from "@mui/icons-material";
 
 const StyledBar = styled(Toolbar)({
   display: "flex",
@@ -16,6 +17,7 @@ const Href = {
 const Navbar = () => {
   const { Search } = useContext(GalleryContext);
   const [val, setVal] = useState("");
+  const [block, setBlock] = useState(false);
 
   const handleChange = (e) => {
     setVal(e.target.value);
@@ -30,6 +32,15 @@ const Navbar = () => {
     Search(val);
     setVal("");
   };
+  const handleDisplay = () => {
+    !block && setBlock(true);
+  };
+
+  window.addEventListener("click", (e) => {
+    if (!e.target.matches("click")) {
+      console.log("not clicked");
+    }
+  });
   return (
     <AppBar
       position="sticky"
@@ -63,7 +74,33 @@ const Navbar = () => {
             How To Use
           </Typography>
         </Stack>
-        <Stack direction="row" alignItems="center" spacing={3}>
+        <Menu
+          fontSize="medium"
+          className="click"
+          sx={{
+            display: {
+              sm: "block",
+              md: "none",
+              xs: "block",
+              cursor: "pointer",
+            },
+          }}
+          onClick={handleDisplay}
+        />
+        <Stack
+          className="position"
+          sx={{
+            display: {
+              sm: block ? "flex" : "none",
+              md: "flex",
+              xs: block ? "flex" : "none",
+            },
+            position: { sm: "absolute", md: "unset", xs: "absolute" },
+          }}
+          direction="row"
+          alignItems="center"
+          spacing={3}
+        >
           <form onSubmit={handleSubmit}>
             <input
               type="text"
