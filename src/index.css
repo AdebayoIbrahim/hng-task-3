@@ -29,3 +29,15 @@ body {
 fieldset {
   border-color: transparent !important;
 }
+
+#gallery {
+  width: 350px;
+}
+@media only screen and (max-width: 500px) {
+  #gallery {
+    width: 100%;
+  }
+  .grid {
+    margin-left: 10px !important;
+  }
+}

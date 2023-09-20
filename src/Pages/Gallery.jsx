@@ -18,7 +18,12 @@ const Gallery = () => {
     setImages(newImages);
   };
   return (
-    <Box sx={{ color: "white", textAlign: "center" }}>
+    <Box
+      sx={{
+        color: "white",
+        textAlign: "center",
+      }}
+    >
       <Navbar />
       <Box>
         <Typography component="h1" pt={4} fontSize={25} fontWeight={500}>
@@ -38,7 +43,7 @@ const Gallery = () => {
           spacing={2}
           justifyContent="center"
           alignItems="center"
-          sx={{}}
+          className="grid"
         >
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="gallery">

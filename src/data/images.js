@@ -2,42 +2,42 @@ const Images = [
   {
     id: 1,
     url: "https://source.unsplash.com/b9-odQi5oDo",
-    tags: ["nature", "landscape"],
+    tags: ["Teach"],
   },
   {
     id: 2,
     url: "https://source.unsplash.com/ZkOHOO8FkTc",
-    tags: ["Kids", "nature"],
+    tags: ["Kids"],
   },
   {
     id: 3,
     url: "https://source.unsplash.com/WUehAgqO5hE",
-    tags: ["Sport", "football"],
+    tags: ["Sport"],
   },
   {
     id: 4,
     url: "https://source.unsplash.com/VURwPtZqyF4",
-    tags: ["nature", "landscape"],
+    tags: ["Anime"],
   },
   {
     id: 5,
     url: "https://source.unsplash.com/rz3eCYGgGSc",
-    tags: ["Anime", "landscape"],
+    tags: ["Anime"],
   },
   {
     id: 6,
     url: "https://source.unsplash.com/Mf23RF8xArY",
-    tags: ["nature", "landscape"],
+    tags: ["Tech"],
   },
   {
     id: 7,
     url: "https://source.unsplash.com/VzJjPuk53sk",
-    tags: ["Tech", "Coding"],
+    tags: ["Tech"],
   },
   {
     id: 8,
     url: "https://source.unsplash.com/a-snow-covered-mountain-under-a-night-sky-aUdoa_00dgY",
-    tags: ["nature", "landscape"],
+    tags: ["Nature"],
   },
 ];
 export { Images };
