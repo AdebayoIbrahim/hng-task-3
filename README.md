@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Gallery-Hub
+## Task 3 of the HNG Internship: Stage Task
+## Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Drag-and-Drop Image Gallery is a web application built using React and the `react-dnd` library. It allows users to create and manage a visually appealing image gallery with drag-and-drop functionality. Authenticated users can log in, rearrange images within the gallery, search for images by tags, and enjoy a responsive design for various devices with [**Mui Grid Layout**](https://mui.com/components/grid/).
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Authentication**: Users can log in using the provided credentials (email: `user@example.com`, password: `1Password`). Authentication is implemented for authorized access.
 
-### `npm start`
+- **Image Display**: Showcase a collection of images in a visually appealing grid layout with consistent spacing and sizing. Each image includes tags for categorization.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Loading State**: A loading state is displayed when images are not yet ready for display, providing a smooth user experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Search Functionality**: Users can search for images based on tags added to the images, making it easy to find specific content.
 
-### `npm test`
+- **Drag-and-Drop**: Users can effortlessly rearrange images within the gallery using the drag-and-drop feature. Images can be moved to preferred positions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **User-Friendly Feedback**: Smooth animations and visual cues are incorporated to provide feedback during drag-and-drop interactions, enhancing the user experience.
 
-### `npm run build`
+- **Responsive Design**: The gallery is designed to function seamlessly on different devices, including mobile phones, tablets, and desktops, ensuring a consistent user experience.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Design Flexibility**: While adhering to the requirements, you have creative freedom to create a unique and appealing design for your gallery.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Clone the Repository**: Clone this repository to your local machine.
 
-### `npm run eject`
+   ```shell
+   git clone https://github.com/your-username/drag-and-drop-gallery.git
+   
+- **Install Dependencies**: Navigate to the project directory and install the required dependencies.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```shell
+   cd drag-and-drop-gallery
+   npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ - **Firebase Configuration**: Configure Firebase authentication in the project. Create a Firebase project and set up the authentication method (e.g., email and password) as described   
+     in Firebase [documentation](https://firebase.google.com/docs). Update the Firebase configuration in the project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ - **Run the Application**: Start the development server to run the application locally.
+    ```shell
+    npm start
+ - **Explore and Interact**: Enjoy exploring the image gallery, rearranging images, searching by tags, and experiencing the drag-and-drop feature.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  - **Demo👉** (https://www.bal.com)
 
-## Learn More
+   
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
