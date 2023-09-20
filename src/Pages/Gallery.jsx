@@ -36,6 +36,7 @@ const Gallery = () => {
           margin: "auto",
         }}
         pt={7}
+        pb={4}
       >
         <Grid
           container
@@ -78,6 +79,15 @@ const Gallery = () => {
           </DragDropContext>
         </Grid>
       </Box>
+
+      <footer>
+        <Stack direction="row" justifyContent="space-between">
+          <Typography sx={{ textAlign: "center" }}>Gallery-Hub</Typography>
+          <Typography sx={{ textAlign: "center" }}>
+            SetUp&copy;{new Date().getFullYear()}
+          </Typography>
+        </Stack>
+      </footer>
     </Box>
   );
 };

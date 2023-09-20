@@ -41,3 +41,27 @@ fieldset {
     margin-left: 10px !important;
   }
 }
+
+footer {
+  background: #10444b;
+  padding: 1.3rem 8%;
+}
+
+form input {
+  all: uset;
+  background: transparent;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border: 2px solid #3a8686;
+  border-radius: 0.9rem;
+}
+input:active,
+input:focus {
+  border: 2px solid #0f5858;
+  outline: none;
+}
+input::placeholder {
+  color: white;
+  font-family: Arial;
+}
