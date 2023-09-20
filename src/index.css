@@ -88,3 +88,26 @@ xl, extra-large: 1536px */
     gap: 1rem;
   }
 }
+
+div.roller {
+  position: absolute;
+  top: 50%;
+  right: 20%;
+  background: transparent;
+  border: 3px solid rgb(13, 224, 196);
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: load 500ms linear infinite;
+}
+@keyframes load {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

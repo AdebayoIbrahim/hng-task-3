@@ -22,6 +22,7 @@ const Login = () => {
   const [inpVal, setInpval] = useState({});
   const [message, setMessage] = useState("");
   const [bg, Setbg] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -43,15 +44,19 @@ const Login = () => {
       alert("please fill out the form");
       return;
     }
+    setLoad(true);
     try {
       await signInWithEmailAndPassword(auth, inpVal.username, inpVal.password);
       console.log("successfull");
       setMessage(`Login Successful `);
+
       Setbg(true);
       setUser(true);
+
       navigate("/gallery");
     } catch (err) {
       console.log(err.message);
+      setLoad(false);
       setMessage("Invalid Login Cridentials");
       setUser(false);
       navigate("/");
@@ -122,7 +127,7 @@ const Login = () => {
             )}
           </Box>
         </Stack>
-        <Box pt={3}>
+        <Box pt={3} sx={{ position: "relative" }}>
           <Button
             type="submit"
             onClick={handleSubmmit}
@@ -136,6 +141,7 @@ const Login = () => {
           >
             Login
           </Button>
+          {load ? <div className="roller"></div> : null}
         </Box>
       </Box>
       {message !== "" && (
