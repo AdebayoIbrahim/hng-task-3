@@ -4,8 +4,10 @@ import Navbar from "../layout/Navbar";
 import GalleryList from "../components/Galleries/galleryList";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import GalleryContext from "../Context/galleryContext";
+import Spinner from "../shared/Spinner";
 const Gallery = () => {
   const { images, setImages } = useContext(GalleryContext);
+  const [lazyload, setLazy] = useState(true);
   const onDragEnd = (result) => {
     if (!result.destination) {
       return;
@@ -17,6 +19,9 @@ const Gallery = () => {
 
     setImages(newImages);
   };
+  setTimeout(() => {
+    setLazy(false);
+  }, 4000);
   return (
     <Box
       sx={{
@@ -38,21 +43,24 @@ const Gallery = () => {
         pt={7}
         pb={4}
       >
-        {images.length < 1 ? (
-          <Box>
-            <Typography pt={4} pb={4} variant="body1" color="primary">
-              No Images to Display Here!!
-            </Typography>
-            <Button
-              mt={3}
-              onClick={() => {
-                window.location.reload();
-              }}
-              variant="contained"
-            >
-              Refresh
-            </Button>
-          </Box>
+        {lazyload && <Spinner />}
+        {images.length < 1 || lazyload ? (
+          lazyload ? null : (
+            <Box>
+              <Typography pt={4} pb={4} variant="body1" color="primary">
+                No Images to Display Here!!
+              </Typography>
+              <Button
+                mt={3}
+                onClick={() => {
+                  window.location.reload();
+                }}
+                variant="contained"
+              >
+                Refresh
+              </Button>
+            </Box>
+          )
         ) : (
           <Grid
             container
