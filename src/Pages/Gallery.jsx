@@ -109,6 +109,8 @@ const Gallery = () => {
         style={{
           width: "100%",
           display: "block",
+          position: lazyload || images.length < 1 ? "absolute" : "unset",
+          bottom: "0",
         }}
       >
         <Stack direction="row" justifyContent="space-between">

@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import { Images } from "../data/images";
 const GalleryContext = createContext();
 export const GalleryContextProvider = ({ children }) => {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [images, setImages] = useState(Images);
   //   const [authenticate, setAuth] = useState(false);
   //searchvalue

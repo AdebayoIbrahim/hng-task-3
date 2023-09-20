@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppBar, Toolbar, Typography, styled, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import GalleryContext from "../Context/galleryContext";
-import { Menu } from "@mui/icons-material";
+import { Menu, Close } from "@mui/icons-material";
 
 const StyledBar = styled(Toolbar)({
   display: "flex",
@@ -36,13 +36,18 @@ const Navbar = () => {
     !block && setBlock(true);
   };
 
-  window.addEventListener("click", (e) => {
-    const form = document.querySelector(".form");
-    const men = document.querySelector(".menu-click");
-    if (!form.contains(e.target) && !men.contains(e.target)) {
-      if (block === true) setBlock(false);
-    }
-  });
+  // window.addEventListener("click", (e) => {
+  //   const form = document.querySelector(".form");
+  //   const men = document.querySelector(".menu-click");
+
+  //   if (!form.contains(e.target) && !men.contains(e.target)) {
+  //     if (block === true) setBlock(false);
+  //   }
+  // });
+
+  const handleClose = () => {
+    if (block === true) setBlock(false);
+  };
   return (
     <AppBar
       position="sticky"
@@ -103,6 +108,22 @@ const Navbar = () => {
           alignItems="center"
           spacing={3}
         >
+          <Close
+            fontSize="medium"
+            className="menu-click"
+            sx={{
+              display: {
+                sm: "block",
+                md: "none",
+                xs: "block",
+                cursor: "pointer",
+              },
+              position: "absolute",
+              right: "10px",
+              top: "10px",
+            }}
+            onClick={handleClose}
+          />
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -116,8 +137,9 @@ const Navbar = () => {
             style={Href}
             component={Link}
             fontSize={18}
+            className="sign"
             to="/"
-            sx={{ border: "2px solid #06444d", padding: "5px 18px" }}
+            sx={{ border: "2px solid #0a8ca0e3", padding: "5px 18px" }}
           >
             Sign Out
           </Typography>
