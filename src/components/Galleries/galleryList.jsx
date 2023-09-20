@@ -1,9 +1,16 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
-
 const GalleryList = ({ item }) => {
   return (
-    <Grid item xl={2} lg={3} md={4} sm={6} xs={12}>
+    <Grid
+      item
+      xl={2}
+      lg={3}
+      md={4}
+      sm={6}
+      xs={12}
+      sx={{ cursor: "pointer", textAlign: "center" }}
+    >
       <Box>
         <img
           src={item.url}
@@ -12,6 +19,7 @@ const GalleryList = ({ item }) => {
             width: "100%",
             aspectRatio: "1 / 1",
             objectFit: "cover",
+            textAlign: "center !important",
           }}
         />
         <Box>

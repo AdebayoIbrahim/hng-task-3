@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Box, styled, Stack } from "@mui/material";
+import { AppBar, Toolbar, Typography, styled, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const StyledBar = styled(Toolbar)({
