@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Box, Typography, Grid, Stack } from "@mui/material";
+import { Box, Typography, Grid, Stack, Button } from "@mui/material";
 import Navbar from "../layout/Navbar";
 import GalleryList from "../components/Galleries/galleryList";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
@@ -38,49 +38,71 @@ const Gallery = () => {
         pt={7}
         pb={4}
       >
-        <Grid
-          container
-          direction="row"
-          spacing={2}
-          justifyContent="center"
-          alignItems="center"
-          className="grid"
-        >
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="gallery">
-              {(provided) => (
-                <div
-                  {...provided.droppableProps}
-                  ref={provided.innerRef}
-                  className="image-gallery"
-                >
-                  {images.map((image, index) => (
-                    <Draggable
-                      key={image.id}
-                      draggableId={image.id.toString()}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className="image-item"
-                        >
-                          <GalleryList item={image} key="index" />
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </Grid>
+        {images.length < 1 ? (
+          <Box>
+            <Typography pt={4} pb={4} variant="body1" color="primary">
+              No Images to Display Here!!
+            </Typography>
+            <Button
+              mt={3}
+              onClick={() => {
+                window.location.reload();
+              }}
+              variant="contained"
+            >
+              Refresh
+            </Button>
+          </Box>
+        ) : (
+          <Grid
+            container
+            direction="row"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+            className="grid"
+          >
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Droppable droppableId="gallery">
+                {(provided) => (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className="image-gallery"
+                  >
+                    {images.map((image, index) => (
+                      <Draggable
+                        key={image.id}
+                        draggableId={image.id.toString()}
+                        index={index}
+                      >
+                        {(provided) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className="image-item"
+                          >
+                            <GalleryList item={image} key="index" />
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
+          </Grid>
+        )}
       </Box>
 
-      <footer style={{ display: "block", width: "100%" }}>
+      <footer
+        style={{
+          width: "100%",
+          display: "block",
+        }}
+      >
         <Stack direction="row" justifyContent="space-between">
           <Typography sx={{ textAlign: "center" }}>Gallery-Hub</Typography>
           <Typography sx={{ textAlign: "center" }}>

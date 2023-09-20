@@ -37,8 +37,10 @@ const Navbar = () => {
   };
 
   window.addEventListener("click", (e) => {
-    if (!e.target.matches("click")) {
-      console.log("not clicked");
+    const form = document.querySelector(".form");
+    const men = document.querySelector(".menu-click");
+    if (!form.contains(e.target) && !men.contains(e.target)) {
+      if (block === true) setBlock(false);
     }
   });
   return (
@@ -76,7 +78,7 @@ const Navbar = () => {
         </Stack>
         <Menu
           fontSize="medium"
-          className="click"
+          className="menu-click"
           sx={{
             display: {
               sm: "block",
@@ -91,9 +93,9 @@ const Navbar = () => {
           className="position"
           sx={{
             display: {
-              sm: block ? "flex" : "none",
+              sm: block ? "flex" : "none ",
               md: "flex",
-              xs: block ? "flex" : "none",
+              xs: block ? "flex" : "none ",
             },
             position: { sm: "absolute", md: "unset", xs: "absolute" },
           }}
@@ -106,6 +108,7 @@ const Navbar = () => {
               type="text"
               placeholder="...search by tag"
               value={val}
+              className="form"
               onChange={handleChange}
             />
           </form>
