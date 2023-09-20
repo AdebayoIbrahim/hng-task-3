@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AppBar, Toolbar, Typography, styled, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
+import GalleryContext from "../Context/galleryContext";
 
 const StyledBar = styled(Toolbar)({
   display: "flex",
@@ -13,6 +14,7 @@ const Href = {
   borderRadius: "1em",
 };
 const Navbar = () => {
+  const { Search } = useContext(GalleryContext);
   const [val, setVal] = useState("");
 
   const handleChange = (e) => {
@@ -25,6 +27,7 @@ const Navbar = () => {
       alert("Input a Value");
       return;
     }
+    Search(val);
     setVal("");
   };
   return (
@@ -64,7 +67,7 @@ const Navbar = () => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="...search"
+              placeholder="...search by tag"
               value={val}
               onChange={handleChange}
             />

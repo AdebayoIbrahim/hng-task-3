@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Box, Typography, Grid, Stack } from "@mui/material";
 import Navbar from "../layout/Navbar";
-import { Images } from "../data/images";
 import GalleryList from "../components/Galleries/galleryList";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import GalleryContext from "../Context/galleryContext";
 const Gallery = () => {
-  const [images, setImages] = useState(Images);
+  const { images, setImages } = useContext(GalleryContext);
   const onDragEnd = (result) => {
     if (!result.destination) {
       return;
@@ -80,7 +80,7 @@ const Gallery = () => {
         </Grid>
       </Box>
 
-      <footer>
+      <footer style={{ display: "block", width: "100%" }}>
         <Stack direction="row" justifyContent="space-between">
           <Typography sx={{ textAlign: "center" }}>Gallery-Hub</Typography>
           <Typography sx={{ textAlign: "center" }}>
