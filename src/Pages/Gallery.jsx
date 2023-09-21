@@ -73,11 +73,7 @@ const Gallery = () => {
             <DragDropContext onDragEnd={onDragEnd}>
               <Droppable droppableId="gallery">
                 {(provided) => (
-                  <div
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                    className="image-gallery"
-                  >
+                  <div {...provided.droppableProps} ref={provided.innerRef}>
                     {images.map((image, index) => (
                       <Draggable
                         key={image.id}
@@ -89,7 +85,6 @@ const Gallery = () => {
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className="image-item"
                           >
                             <GalleryList item={image} key="index" />
                           </div>
