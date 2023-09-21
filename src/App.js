@@ -13,7 +13,7 @@ function App() {
   //clear-up-build
   setTimeout(() => {
     setBuild(false);
-  }, 3000);
+  }, 2500);
   return (
     <GalleryContextProvider>
       <Box>

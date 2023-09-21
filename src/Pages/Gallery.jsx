@@ -21,7 +21,7 @@ const Gallery = () => {
   };
   setTimeout(() => {
     setLazy(false);
-  }, 4000);
+  }, 2500);
   return (
     <Box
       sx={{
