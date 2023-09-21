@@ -53,14 +53,13 @@ const Login = () => {
 
       Setbg(true);
       setUser(true);
-
       navigate("/gallery");
     } catch (err) {
       console.log(err.message);
       setLoad(false);
       setMessage("Invalid Login Cridentials");
-      setUser(false);
       navigate("/");
+      setUser(false);
     }
   };
 

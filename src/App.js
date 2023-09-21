@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Login from "./components/login";
 import { Box } from "@mui/material";
 import Gallery from "./Pages/Gallery";
-// import { cyan } from "@mui/material/colors";
 import { Routes, Route } from "react-router-dom";
 import { GalleryContextProvider } from "./Context/galleryContext";
 import GalleryContext from "./Context/galleryContext";
@@ -17,7 +16,7 @@ function App() {
   }, 3000);
   return (
     <GalleryContextProvider>
-      <Box sx={{}}>
+      <Box>
         {build ? (
           <Build />
         ) : (
@@ -27,7 +26,7 @@ function App() {
               path="/gallery"
               element={
                 <GalleryContext.Consumer>
-                  {(context) => <Gallery />}
+                  {(context) => (context.user ? <Gallery /> : <Login />)}
                 </GalleryContext.Consumer>
               }
             />
