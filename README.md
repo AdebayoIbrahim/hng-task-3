@@ -27,7 +27,7 @@ The Drag-and-Drop Image Gallery is a web application built using React and the `
 - **Clone the Repository**: Clone this repository to your local machine.
 
    ```shell
-   git clone https://github.com/your-username/drag-and-drop-gallery.git
+   https://github.com/AdebayoIbrahim/hng-task-3.git
    
 - **Install Dependencies**: Navigate to the project directory and install the required dependencies.
 
