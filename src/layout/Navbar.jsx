@@ -75,8 +75,9 @@ const Navbar = () => {
             style={Href}
             pl={5}
             component={Link}
+            target="_blank"
+            to="https://github.com/AdebayoIbrahim/hng-task-3"
             fontSize={16}
-            to="/faqs"
           >
             How To Use
           </Typography>
