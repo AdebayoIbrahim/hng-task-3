@@ -72,6 +72,7 @@ const Navbar = () => {
           </Typography>
 
           <Typography
+            className="none"
             style={Href}
             pl={5}
             component={Link}
