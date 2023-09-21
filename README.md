@@ -43,7 +43,7 @@ The Drag-and-Drop Image Gallery is a web application built using React and the `
     npm start
  - **Explore and Interact**: Enjoy exploring the image gallery, rearranging images, searching by tags, and experiencing the drag-and-drop feature.
 
-  - **Demo👉** (https://www.bal.com)
+  - **Demo👉** [Gallery-Hub](https://gallerry-hub.netlify.app/).
 
    
 
