@@ -8,7 +8,9 @@ export const GalleryContextProvider = ({ children }) => {
   //searchvalue
   const Search = (value) => {
     const filtered = images.filter((img) => {
-      return img.tags[0].includes(value);
+      return img.tags[0]
+        .toLocaleLowerCase()
+        .includes(value.toLocaleLowerCase());
     });
     console.log(filtered);
     setImages(filtered);
