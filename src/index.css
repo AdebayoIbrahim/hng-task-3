@@ -8,6 +8,28 @@ body {
   background: #03363d;
   /* color: #0a8ca0e3; */
 }
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+  margin-block: 0.3em;
+  border-radius: 50vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(6, 83, 94);
+  border-radius: 50vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 83, 94, 0.8);
+}
+
 #input,
 #password {
   color: rgb(230, 211, 211) !important;
