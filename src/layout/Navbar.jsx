@@ -110,6 +110,17 @@ const Navbar = () => {
           alignItems="center"
           spacing={3}
         >
+          <Typography
+            className="how-to"
+            style={Href}
+            pl={5}
+            component={Link}
+            target="_blank"
+            to="https://github.com/AdebayoIbrahim/hng-task-3"
+            fontSize={16}
+          >
+            How To Use
+          </Typography>
           <Close
             fontSize="medium"
             className="menu-click"
@@ -126,7 +137,7 @@ const Navbar = () => {
             }}
             onClick={handleClose}
           />
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} name="from-search">
             <input
               type="text"
               placeholder="...search by tag"

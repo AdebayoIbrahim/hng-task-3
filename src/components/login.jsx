@@ -90,6 +90,7 @@ const Login = () => {
           // border: "6px solid #075b67",
         }}
         component="form"
+        name="form-login"
       >
         <Typography color="white" variant="body1" fontSize={20}>
           Gallery-Hub
