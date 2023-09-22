@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, styled, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import GalleryContext from "../Context/galleryContext";
 import { Menu, Close } from "@mui/icons-material";
-
+import { SignOutButton } from "@clerk/clerk-react";
 const StyledBar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
@@ -146,16 +146,16 @@ const Navbar = () => {
               onChange={handleChange}
             />
           </form>
-          <Typography
-            style={Href}
-            component={Link}
-            fontSize={18}
-            className="sign"
-            to="/"
-            sx={{ border: "2px solid #0a8ca0e3", padding: "5px 18px" }}
-          >
-            Sign Out
-          </Typography>
+          <SignOutButton
+            style={{
+              border: "2px solid #0a8ca0e3",
+              padding: "5px 18px",
+              borderRadius: "8px",
+              background: "transparent",
+              color: "white",
+              cursor: "pointer",
+            }}
+          />
         </Stack>
       </StyledBar>
     </AppBar>

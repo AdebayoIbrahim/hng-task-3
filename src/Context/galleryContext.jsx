@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 import { Images } from "../data/images";
 const GalleryContext = createContext();
 export const GalleryContextProvider = ({ children }) => {
-  const [user, setUser] = useState(false);
   const [images, setImages] = useState(Images);
   //   const [authenticate, setAuth] = useState(false);
   //searchvalue
@@ -17,9 +16,7 @@ export const GalleryContextProvider = ({ children }) => {
   };
 
   return (
-    <GalleryContext.Provider
-      value={{ user, setUser, images, setImages, Search }}
-    >
+    <GalleryContext.Provider value={{ images, setImages, Search }}>
       {children}
     </GalleryContext.Provider>
   );

@@ -102,7 +102,9 @@ xl, extra-large: 1536px */
     top: 120%;
     width: 300px;
     text-align: center;
-    left: 40%;
+    top: 150%;
+    left: 10%;
+
     border-radius: 0.5rem;
     box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.7);
     /* padding-top: 40%; */
